@@ -1,0 +1,71 @@
+<div class="lighten-4 search-box">
+  <div class="container nav-container search-container" style="margin: 10px auto;">
+    <div class="row" style="height:100%;">
+      <div class="col-lg-12 nav-wrapper">
+        <form class="ng-pristine ng-valid" action="/l" style="width: 100%;">
+          <div class="input-field" title="Search away...">
+            <input id="q" name="q" type="search" required="" autofocus="" placeholder="Search by tags" class="validate" autocomplete="off" ng-model="search.tags" typeahead="tags" typeahead-callback="callback">
+            <label for="q" class="active">
+              <i class="fa fa-search grey-text text-lighten-2"></i>
+            </label>
+            <i class="fa fa-navigation-close"></i>
+          </div>
+        </form>
+        <div class="sort-fields" title="Search away...">
+          <div class="label-sort">Sort paths by any of these fields</div>
+          <div class="sort-btn-container">
+            <button ng-click="sortBy('upVotes')" class="btn btn-primary">Up Votes <span class="sortorder" ng-show="propertyName === 'upVotes'" ng-class="{reverse: reverse}"></span></button>
+            <button ng-click="sortBy('downVotes')" class="btn btn-primary">Down Votes <span class="sortorder" ng-show="propertyName === 'downVotes'" ng-class="{reverse: reverse}"></span></button>
+            <button ng-click="sortBy('learner')" class="btn btn-primary">Learner <span class="sortorder" ng-show="propertyName === 'learner'" ng-class="{reverse: reverse}"></span></button>
+            <button ng-click="sortBy('hours')" class="btn btn-primary">Hours <span class="sortorder" ng-show="propertyName === 'hours'" ng-class="{reverse: reverse}"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-content">
+  <div class="container list-container" ng-repeat="path in paths  | filter:search:strict | orderBy:propertyName:reverse">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-image">
+              <img src="{{path.image}}" />
+            </div>
+            <div class="card-info">
+              <a class="card-title" ng-click="goToProfile(path)">
+                {{path.name}}
+                <span class="view-button" ng-click="upVote(path.id)">
+                  <i class="fa fa-eye" style="margin-right: 5px;"></i>
+                </span>
+              </a>
+              <div class="card-tag">
+                <i class="fa fa-pencil" style="margin-right: 5px;"></i>
+                {{path.tags}}
+              </div>
+              <div class="card-tag">
+                <i class="fa fa-user" style="margin-right: 5px;"></i>
+                {{path.learner}} leaners
+              </div>
+              <div class="card-tag">
+                <i class="fa fa-user" style="margin-right: 5px;"></i>
+                {{path.hours}}+ leaners
+              </div>
+              <div class="card-likes">
+                <a class="like-button" ng-click="upVote(path.id)">
+                  <i class="fa fa-thumbs-up" style="margin-right: 5px;"></i>
+                  <span>{{path.upVotes}}</span>
+                </a>
+                <a class="unlike-button" ng-click="downVote(path.id)">
+                  <i class="fa fa-thumbs-down" style="margin-right: 5px;"></i>
+                  <span>{{path.downVotes}}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

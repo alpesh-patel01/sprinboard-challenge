@@ -1,0 +1,68 @@
+<div class="profile-page-content">
+  <div class="profile-view profile-card grid-bx">
+    <div class="cover-image">
+      <div class="profile-name">
+        {{path.name}}
+        <a class="pull-right signup-button" href="{{path.sign_up}}" target="_blank">
+          <i class="fa fa-user"></i> View Curriculum
+        </a>
+      </div>
+    </div>
+    <div class="profile-image">
+			<img src="{{path.image}}" height="118" width="118">
+		</div>
+    <div class="profile-details row">
+      <div class="col-xs-offset-4 col-xs-4 col-sm-offset-2 col-sm-4 wrapper-cols details-wrapper">
+        <div class="details">
+          <span>
+          	<i class="fa icons learners-icon fa-user"></i>
+          	<label for="learners-icon">{{path.learner}} learners</label>
+          </span>
+        </div>
+        <div class="details">
+          <span class="details">
+          	<i class="fa icons learners-icon fa-clock-o"></i>
+          	<label for="learners-icon">{{path.hours}}+ hours</label>
+          </span>
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-6 wrapper-cols vote-wrapper">
+        <button type="button" class="btn btn-primary" ng-click="upVote(path.id)">
+          <i class="fa fa-thumbs-up" style="margin-right: 5px;"></i> {{path.upVotes}}
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="downVote(path.id)" style="margin-left:10px;">
+          <i class="fa fa-thumbs-down" style="margin-right: 5px;"></i> {{path.downVotes}}
+        </button>
+      </div>
+      <div class="signup-on-small">
+        <a class="signup-button" href="{{path.sign_up}}" target="_blank">
+          <i class="fa fa-user"></i> View Curriculum
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row description-cards">
+    <div class="col-sm-5 col-sm-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">Description</div>
+        <div class="panel-body">
+          {{path.description}}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Tags</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li ng-repeat="tag in tags track by $index">
+              {{tag}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

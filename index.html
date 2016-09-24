@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="./app/app.css">
+  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./bower_components/components-font-awesome/css/font-awesome.min.css">
+
+  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="./bower_components/restangular/dist/restangular.js"></script>
+  <script src="./bower_components/ngstorage/ngstorage.min.js"></script>
+
+  <script src="./app/app.js"></script>
+
+  <script src="./app/scripts/controllers/homeController.js"></script>
+  <script src="./app/scripts/controllers/profileController.js"></script>
+  <script src="./app/scripts/services/voteService.js"></script>
+  <script src="./app/scripts/directives/typeahead.js"></script>
+</head>
+<body ng-app="challengeApp">
+
+  <!-- MAIN CONTENT -->
+  <div>
+    <div ui-view ></div>
+  </div>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+</body>
+</html>
